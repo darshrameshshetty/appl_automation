@@ -17,7 +17,6 @@ from typing import TypedDict
 # ============================================================
 # 1. CONFIGURATION
 # ============================================================
-
 load_dotenv()
 
 st.set_page_config(
@@ -28,10 +27,9 @@ st.set_page_config(
 
 llm = ChatMistralAI(
     model="mistral-small-latest",
-    temperature=0.3
+    temperature=0.3,
+    api_key=st.secrets["MISTRAL_API_KEY"]
 )
-
-
 # ============================================================
 # 2. LANGGRAPH STATE
 # ============================================================
