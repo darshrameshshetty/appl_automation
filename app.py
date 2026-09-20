@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 from fpdf import FPDF
 
-from langchain_mistralai import ChatMistralAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate
 
 from langgraph.graph import StateGraph, START, END
@@ -25,10 +25,10 @@ st.set_page_config(
     layout="wide"
 )
 
-llm = ChatMistralAI(
-    model="mistral-small-latest",
+llm = ChatGoogleGenerativeAI(
+    model="gemini-2.5-flash-lite",
     temperature=0.3,
-    api_key=st.secrets["MISTRAL_API_KEY"]
+    google_api_key=st.secrets["GOOGLE_API_KEY"]
 )
 # ============================================================
 # 2. LANGGRAPH STATE
